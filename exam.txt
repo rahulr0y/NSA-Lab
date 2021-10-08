@@ -1,0 +1,157 @@
+
+Q1)
+exam@debian:~$ mkdir FISAT
+exam@debian:~$ cd FISAT
+exam@debian:~/FISAT$ mkdir DAY1 DAY2 DAY3
+exam@debian:~/FISAT$ ls
+DAY1  DAY2  DAY3
+exam@debian:~/FISAT$ cd DAY1
+exam@debian:~/FISAT/DAY1$ cat > f1.txt
+this is file f1
+exam@debian:~/FISAT/DAY1$ cat > f2.txt 
+this is f2
+exam@debian:~/FISAT/DAY1$ cat > f3.txt
+this is f3
+exam@debian:~/FISAT/DAY1$ ls
+f1.txt  f2.txt  f3.txt
+exam@debian:~/FISAT/DAY1$ cd ..
+exam@debian:~/FISAT$ cd DAY2
+exam@debian:~/FISAT/DAY2$ cat > m1.txt
+this is m1
+exam@debian:~/FISAT/DAY2$ cat > m2.txt
+this is m2
+exam@debian:~/FISAT/DAY2$ ls
+m1.txt  m2.txt
+exam@debian:~/FISAT/DAY2$ cd ../DAY3
+exam@debian:~/FISAT/DAY3$ cat > c1.txt
+this is file c1
+exam@debian:~/FISAT/DAY3$ cat > c2.txt
+this is file c2
+exam@debian:~/FISAT/DAY3$ ls
+c1.txt  c2.txt
+exam@debian:~/FISAT/DAY3$ cd ../DAY2
+
+Q1.1)
+
+exam@debian:~/FISAT/DAY2$ cat m1.txt m2.txt > m3.txt
+exam@debian:~/FISAT/DAY2$ ls
+m1.txt  m2.txt  m3.txt
+exam@debian:~/FISAT/DAY2$ cat m3.txt
+this is m1
+this is m2
+
+Q1.2)
+
+exam@debian:~/FISAT/DAY2$ cp -r m3.txt ~/FISAT/DAY3/c3.txt
+exam@debian:~/FISAT/DAY2$ cat m3.txt
+this is m1
+this is m2
+exam@debian:~/FISAT/DAY2$ cd ../DAY3
+exam@debian:~/FISAT/DAY3$ ls
+c1.txt  c2.txt  c3.txt
+exam@debian:~/FISAT/DAY3$ cat c3.txt
+this is m1
+this is m2
+
+
+Q1.3)
+
+
+exam@debian:~/FISAT/DAY1$ ls -al
+total 20
+drwxr-xr-x 2 exam exam 4096 Oct  8 10:05 .
+drwxr-xr-x 5 exam exam 4096 Oct  8 10:03 ..
+-rw-r--r-- 1 exam exam   15 Oct  8 10:05 f1.txt
+-rw-r--r-- 1 exam exam   10 Oct  8 10:05 f2.txt
+-rw-r--r-- 1 exam exam   11 Oct  8 10:05 f3.txt
+exam@debian:~/FISAT/DAY1$ chmod ugao+w f1.txt
+exam@debian:~/FISAT/DAY1$ ls -al
+total 20
+drwxr-xr-x 2 exam exam 4096 Oct  8 10:05 .
+drwxr-xr-x 5 exam exam 4096 Oct  8 10:03 ..
+-rw-rw-rw- 1 exam exam   15 Oct  8 10:05 f1.txt
+-rw-r--r-- 1 exam exam   10 Oct  8 10:05 f2.txt
+-rw-r--r-- 1 exam exam   11 Oct  8 10:05 f3.txt
+exam@debian:~/FISAT/DAY1$ 
+
+Q1.4)
+
+exam@debian:~$ ps 
+
+exam@debian:~$ ps -aux
+
+
+Q1.5)
+
+exam@debian:~/FISAT/DAY1$ pwd
+/home/exam/FISAT/DAY1
+
+Q2)
+
+echo -e "1. Circle \n2. Rectangle \n3. Triangle"
+
+read -p "Enter the Option: " ch
+
+case $ch in
+    1)
+	read -p "Enter the radius: " r
+	area=`expr $r \* $r \* 22`
+	area=`expr $area / 7`
+	echo "$area"
+	;;
+    2)
+	read -p "Length: " l
+	read -p "Breadth: " b
+	area=`expr $l \* $b`
+	echo "Area: $area"
+	;;
+    3)
+	read -p "Base: " b
+	read -p "Height: " h
+	area=`expr $b \* $h`
+	area=`expr $area / 2`
+	echo "Area: $area"
+	;;
+    
+    *)
+	echo "Invalid Option"
+
+esac
+
+
+OUTPUT
+
+exam@debian:~$ ./area.sh
+1. Circle 
+2. Rectangle 
+3. Triangle
+Enter the Option: g
+Invalid Option
+exam@debian:~$ ./area.sh
+1. Circle 
+2. Rectangle 
+3. Triangle
+Enter the Option: 1
+Enter the radius: 4
+50
+exam@debian:~$ ./area.sh
+1. Circle 
+2. Rectangle 
+3. Triangle
+Enter the Option: 3
+Base: 4
+Height: 8
+Area: 16
+exam@debian:~$ ./area.sh
+1. Circle 
+2. Rectangle 
+3. Triangle
+Enter the Option: 2
+Length: 4
+Breadth: 5
+Area: 20
+exam@debian:~$ 
+
+
+
+
